@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 var express = require("express");
 var app = express();
 var bodyParser = require("body-parser");
@@ -16,7 +18,8 @@ var commentRoutes    = require("./routes/comments"),
     indexRoutes      = require("./routes/index");
 
 //mongoose.connect("mongodb://localhost/yelp_camp");
-mongoose.connect("mongodb://changqc:qiqi971128@ds129811.mlab.com:29811/yelpcamp_changqc");
+//mongoose.connect("mongodb://changqc:qiqi971128@ds129811.mlab.com:29811/yelpcamp_changqc");
+mongoose.connect(process.env.DATABASEURL);
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
@@ -49,6 +52,7 @@ app.use(commentRoutes);
 
 //start the server
 app.listen(process.env.PORT , process.env.IP , function(){
+    console.log(process.env.DATABASEURL);
     console.log("Started");
 });
 

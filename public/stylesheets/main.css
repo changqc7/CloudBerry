@@ -13,3 +13,18 @@
 .delete{
     display: inline;
 }
+
+.head{
+    text-align: center;
+}
+
+.user_form{
+    width: 30%;
+    margin: 25px auto;
+}
+
+/* Google Maps */
+#map {
+    height: 400px;
+    width: 100%;
+}
